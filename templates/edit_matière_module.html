@@ -1,0 +1,66 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+           <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  
+         <link rel="stylesheet" href="{{ url_for('static', filename='table.css') }}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"> 
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />  
+    <title>Page de matières</title>
+  
+  </head>
+  
+  <body class="loggedin">
+    <nav class="navtop">
+      <div>
+        <h1>Modification des Matières par Module</h1>
+        <a href="{{ url_for('logout') }}" class="fas fa-sign-out-alt">Logout</a>
+      </div>
+    </nav>
+    <div class="content">
+        <h2>Modifier Matière</h2>
+
+{% block body %}
+    
+      <div class="content">
+          
+        <form action="/Index6/update/{{matièreparmodule.id}}" method="POST">
+          <div class="form-group">
+            <p>Nom</p>
+           <input type="text" name="nom_m" value="{{matièreparmodule.titre_mat}}" class="form-control">
+          </div>
+          <div class="form-group">
+             <p>Coefficient Examen</p>
+            <input type="text" name="coeff_EXAM" value="{{matièreparmodule.coeff_EXAM}}" class="form-control">
+          </div>
+          <div class="form-group">
+             <p>Coefficient DS</p>
+             <input type="text" name="coeff_DS" value="{{matièreparmodule.coeff_DS}}" class="form-control">
+          </div>
+          <div class="form-group">
+             <p>Coefficient TP</p>
+             <input type="text" name="coeff_TP" value="{{matièreparmodule.coeff_TP}}" class="form-control">
+          </div>
+          <div class="form-group">
+             <p>Module</p>
+            <SELECT class="form-control" name="module" required/>
+           <option value="{{matièreparmodule.module}}">{{matièreparmodule.module}}</option>
+            {% for data1 in module %}
+            <option value="{{data1.titre}}">{{data1.titre}}</option>
+           {% endfor %}
+          </SELECT>
+          </div>
+          <div class="form-group">
+             <p>Coefficient Matière</p>
+            <input type="text" name="coeff_matière" value="{{matièreparmodule.coeff_matière}}" class="form-control">
+          </div>
+            <button type="submit" class="btn btn-primary btn-block">
+              Modifier
+            </button>
+          </div>
+        </form>
+      </div>
+
+  </div>
+ 
+{% endblock %}

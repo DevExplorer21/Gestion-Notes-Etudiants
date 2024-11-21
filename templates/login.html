@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Connexion</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">           
+    </head>
+    <body></br></br></br></br></br>
+        <div align="center">
+          <div align="center" class="border">
+             <div class="header">
+                <h1 class="word">Connexion</h1>
+             </div></br></br></br>
+            <h2 class="word">
+                <form action="{{ url_for('login') }}" method="post">
+                  <div class="msg">{{ msg }}</div>
+                    <input id="username" name="username" type="text" placeholder="Nom d'utilisateur" class="textbox"/></br></br>
+                    <input id="password" name="password" type="password" placeholder="Mot de passe" class="textbox"/></br></br></br>
+                    <input type="submit" class="button button1" value="Connexion"></br></br>
+                </form>
+            </h2>
+           <!-- <p class="bottom">Vous n'avez pas un compte ?  <a class="bottom" href="{{url_for('register')}}"> S'inscrire ici</a></p>-->
+          </div>
+        </div>
+    </body>
+</html>
+<style type="text/css">
+  ::placeholder {
+  color: white;
+}
+.button {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.button1 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid black;
+}
+
+.button1:hover {
+    background-color: black;
+    color: white;
+}
+</style>

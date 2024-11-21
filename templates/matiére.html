@@ -1,0 +1,83 @@
+</body>
+</html>
+
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+           <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  
+         <link rel="stylesheet" href="{{ url_for('static', filename='table.css') }}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"> 
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />  
+    <title>Page de Etudiants</title>
+  
+  </head>
+  
+  <body class="loggedin">
+    <nav class="navtop">
+      <div>
+        <h1>La Page des Etudiants</h1>
+        <a href="{{ url_for('logout') }}" class="fas fa-sign-out-alt">Logout</a>
+      </div>
+    </nav>
+    <div class="content">
+        <h2>Voici la liste des étudiants de cette classe   </h2>
+    
+ <div> 
+    <center>
+
+</head>
+<body>
+<div>
+  <center>
+    
+<table>
+  <tr>
+<th>Module</th>
+<th>Matière</th>
+  <th>Examen</th>
+  <th>DS</th>
+  <th>TP</th>
+  <th>Coefficient</th>
+  <th>Moyenne</th>
+  <th>Action</th>
+
+  </tr>
+  
+    <tbody>
+
+    {% for data in matière %}
+    <tr>
+           <td>{{data.module}}</td>
+            <td>{{data.nom}}</td>
+            <td>{{data.examen}}</td>
+            <td>{{data.DS}}</td>
+            <td>{{data.TP}}</td>
+            <td>{{data.coeff_matière}}</td>
+            <td>{{data.moyenne}}</td>
+            <td>
+              <a href="/Index3/edit/{{data.id}}" class="btn btn-warning"><i class="fa fa-edit"></i>Modifier</a> </br> 
+              <a href="/Index3/delete/{{data.id}}" class="btn btn-danger"><i class="fa fa-trash"></i>Supprimer</a></br>
+            </td>
+</tr>
+  
+ 
+    {% endfor %}
+    </tbody>
+     
+</table>
+<div>
+
+{% for data2 in matièrePE %}
+<a href="/IndexMat/{{data2.cin_etudiant}}" class="button button1">Ajouter Note avec TP</a>
+<a href="/IndexMatSTP/{{data2.cin_etudiant}}" class="button button3">Ajouter Note sans TP</a>
+<a href="/index2/bulltein/{{data2.cin_etudiant}}" class="button button1">Générer Bulltein</a>
+{% endfor %}
+</div>
+</center>
+</div>
+                          
+          </center>
+        </div>
+</body>
+</html>

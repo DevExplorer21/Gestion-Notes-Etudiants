@@ -1,0 +1,79 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+           <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  
+         <link rel="stylesheet" href="{{ url_for('static', filename='table.css') }}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"> 
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />  
+    <title>Page de Etudiants</title>
+  
+  </head>
+  
+  <body class="loggedin">
+    <nav class="navtop">
+      <div>
+        <h1>La Page des Etudiants</h1>
+        <a href="{{ url_for('logout') }}" class="fas fa-sign-out-alt">Logout</a>
+      </div>
+    </nav>
+    <div class="content">
+        <h2>Voici la liste des étudiants de cette classe   </h2>
+    
+ <div> 
+    <center>
+
+</head>
+<body>
+<div>
+  <center>
+    
+<table>
+  <tr>
+  <th>Nom</th>
+  <th>Prénom</th>
+  <th>Numéro de CIN</th>
+  <th>Numéro de Téléphone</th>
+  <th>Adresse</th>
+  <th>E-Mail</th>
+  <th>Niveau D'étude</th>
+  <th>Action</th>
+
+  </tr>
+  
+    <tbody>
+
+    {% for data in filiere %}
+    <tr>
+             <td>{{data.nom}}</td>
+            <td>{{data.prénom}}</td>
+            <td>{{data.cin}}</td>
+            <td>{{data.num_tlf}}</td>
+            <td>{{data.adresse}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.niveau}}</td>
+            <td>
+               
+              <!-- <a href="/index2/affiche_matière/{{data.cin}}"><input type="button"  value="{{data.niveau}}">-->
+              <a href="/Index2/edit/{{data.id}}" class="btn btn-warning"><i class="fa fa-edit"></i>Modifier</a> </br>
+              <a href="/Index2/delete/{{data.id}}" class="btn btn_delete btn-danger"><i class="fa fa-trash"></i>Supprimer</a></br>
+              <a href="/index2/affiche_matière/{{data.cin}}" class="btn btn-primary"><i class="fa fa-search"></i>Consulter matière</a>
+            </td>
+</tr>
+ 
+    {% endfor %}
+    </tbody>
+     
+</table>
+<div>
+  </br></br></br>
+</center>
+</div>
+                          
+          </center>
+        </div>
+</body>
+</html>
+
+
+

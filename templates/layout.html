@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Page De Gestion Des Etudiants</title>
+     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"> 
+   
+   <!-- hedhom ml PFE  <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <link rel="stylesheet" media="screen" type="text/css" title="Design" href="tableau.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /> 
+
+    hedha mtaa show w search w previous 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>-->
+ 
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+ 
+  </head>
+   <body class="loggedin">
+     <nav class="navtop">
+      <div>
+        <h1>Page de Gestion des Etudiants</h1>
+        <a href="{{ url_for('logout') }}" class="fas fa-sign-out-alt">Logout</a>
+
+      </div>
+    </nav>
+   
+        <div class="content">
+          <center>
+ 
+    <!-- NAVIGATION      <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Page De Gestion Des Etudiants</a>
+    </nav>-->
+
+ 
+    <div class="container pt-4">
+      {% block body %}
+      {% endblock %}
+    </div>
+  
+<script>
+const btnDelete= document.querySelectorAll('.btn_delete');
+if(btnDelete) {
+  const btnArray = Array.from(btnDelete);
+  btnArray.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      if(!confirm('voulez vous vraiment supprimer cet etudiant ?')){
+        e.preventDefault();
+      }
+    });
+  })
+}
+ 
+$(document).ready(function() {
+    $('#example').DataTable({     
+      "aLengthMenu": [[3, 5, 10, 25, -1], [3, 5, 10, 25, "All"]],
+        "iDisplayLength": 3
+       } 
+    );
+} );
+ 
+</script>
+  </body>
+</html>
+
+<style type="text/css">
+  .navtop {
+  background-color: #55585d;
+  height: 60px;
+  width: 100%;
+  border: 0;
+}
+.navtop div {
+  display: flex;
+  margin: 0 auto;
+  width: 1000px;
+  height: 100%;
+}
+.navtop div h1, .navtop div a {
+  display: inline-flex;
+  align-items: center;
+}
+.navtop div h1 {
+  flex: 1;
+  font-size: 24px;
+  padding: 0;
+  margin: 0;
+  color: #eaebed;
+  font-weight: normal;
+  font-family:"times new roman", times, serif;
+}
+.navtop div a {
+  padding: 0 20px;
+  text-decoration: none;
+  color: #c1c4c8;
+  font-weight: bold;
+}
+.navtop div a i {
+  padding: 2px 8px 0 0;
+}
+.navtop div a:hover {
+  color: #eaebed;
+}

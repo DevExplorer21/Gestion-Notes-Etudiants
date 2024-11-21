@@ -1,0 +1,186 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+table tr:hover {background-color: #ddd;}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+
+ .header{
+                padding: 5px 120px;
+                width: 150px;
+                height: 70px;
+                background-color: #008CBA; 
+            }
+          
+            .border{
+                padding: 80px 50px;
+                width: 400px;
+                height: 450px;
+                border: 1px solid #008CBA;
+                border-radius: 0px;
+                background-color: #FFFFFF;
+            }
+  
+           
+            .textbox{
+                
+                padding: 12px 20px;
+                margin: 8px 0;
+                background-color: #008CBA; 
+                text-color: #FFFFFF;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+                  
+  
+            .word{
+                color: #FFFFFF;
+                font-style: oblique;
+                font-weight: bold;
+
+            }
+  
+            .bottom{
+                color: #656985;
+                font-style: oblique;
+                font-weight: normal;
+                font-family:"times new roman", times, monospace;
+            }
+.button {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+}
+
+.button2 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+}
+
+.button2:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+.button3 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #f44336;
+}
+
+.button3:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+.button4 {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+}
+
+.button4:hover {
+    background-color: #555555;
+    color: white;
+}
+
+
+.navtop {
+  background-color: #8D9998;
+  height: 60px;
+  width: 100%;
+  border: 0;
+}
+.navtop div {
+  display: flex;
+  margin: 0 auto;
+  width: 1000px;
+  height: 100%;
+}
+.navtop div h1, .navtop div a {
+  display: inline-flex;
+  align-items: center;
+}
+.navtop div h1 {
+  flex: 1;
+  font-size: 24px;
+  padding: 0;
+  margin: 0;
+  color: #eaebed;
+  font-weight: normal;
+  font-family:"times new roman", times, serif;
+}
+.navtop div a {
+  padding: 0 20px;
+  text-decoration: none;
+  color: #c1c4c8;
+  font-weight: bold;
+}
+.navtop div a i {
+  padding: 2px 8px 0 0;
+}
+.navtop div a:hover {
+  color: #eaebed;
+}
+body.loggedin {
+  background-color: #ffffff;
+}
+.content {
+  width: 1000px;
+  margin: 0 auto;
+}
+.content h2 {
+  margin: 0;
+  padding: 25px 0;
+  font-size: 22px;
+  border-bottom: 1px solid #e0e0e3;
+  color: black;
+  font-family:"times new roman", times, monospace;
+}
+.content > div {
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+  margin: 25px 0;
+  padding: 25px;
+  background-color: #fff;
+}
+.content > p table td, .content > div table td {
+  padding: 5px;
+}
+.content > p table td:first-child, .content > div table td:first-child {
+  font-weight: bold;
+  color: #4a536e;
+  padding-right: 15px;
+}
+
+

@@ -1,0 +1,75 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  
+         <link rel="stylesheet" href="{{ url_for('static', filename='table.css') }}">
+         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"> 
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>  
+    <title>Page de notes par matière</title>
+  
+  </head>
+  
+  <body class="loggedin">
+    <nav class="navtop">
+      <div>
+        <h1>Modification des Gestion</h1>
+        <a href="{{ url_for('logout') }}" class="fas fa-sign-out-alt">Logout</a>
+      </div>
+    </nav>
+    <div class="content">
+        <h2>Modifier Note</h2>
+
+{% block body %}
+    
+      <div class="content">
+        <form action="/Index3/update/{{matière.id}}" method="POST">
+
+          <div class="form-group">
+            <p>Matière</p>
+            <input type="text" name="nom_m" value="{{matière.nom}}" class="form-control">
+          </div>
+          <div class="form-group">
+            <p>Note d'examen</p>
+            <input type="text" name="note_EXAM" value="{{matière.examen}}" class="form-control">
+          </div>
+          <div class="form-group">
+            <p>Coefficient d'examen</p>
+            <input type="text" name="coeff_EXAM" value="{{matière.coeff_EXAM}}" class="form-control">
+          </div>
+          <div class="form-group">
+            <p>Note DS</p>
+            <input type="text" name="note_DS" value="{{matière.DS}}" class="form-control">
+          </div>
+          <div class="form-group">
+            <p>Coefficient DS</p>
+            <input type="text" name="coeff_DS" value="{{matière.coeff_DS}}" class="form-control">
+          </div>
+           <div class="form-group">
+            <p>Note TP</p>
+            <input type="text" name="note_TP" value="{{matière.TP}}" class="form-control">
+          </div>
+          <div class="form-group">
+            <p>Coefficient TP</p>
+            <input type="text" name="coeff_TP" value="{{matière.coeff_TP}}" class="form-control">
+          </div>
+           <div class="form-group">
+            <p>Coefficient Matière</p>
+            <input type="text" name="coeff_matière" value="{{matière.coeff_matière}}" class="form-control">
+          </div>
+          <div class="form-group">
+            <p>Cin d'étudiant</p>
+            <input type="text" name="cin_etudiant" value="{{matière.cin_etudiant}}" class="form-control">
+          </div>
+          <div class="form-group">
+
+            <button type="submit" class="btn-primary btn-block">
+              Modifier
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+ 
+{% endblock %}

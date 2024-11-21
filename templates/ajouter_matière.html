@@ -1,0 +1,86 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+           <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  
+         <link rel="stylesheet" href="{{ url_for('static', filename='table.css') }}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"> 
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />  
+    <title>Gestion des Notes</title>
+  
+  </head>
+  
+  <body class="loggedin">
+    <nav class="navtop">
+      <div>
+        <h1>Gestion des Notes</h1>
+        <a href="{{ url_for('logout') }}" class="fas fa-sign-out-alt">Logout</a>
+      </div>
+    </nav>
+     {% with messages = get_flashed_messages()  %}
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+    <div class="content">
+        <h2>Ajouter Note avec TP</h2>
+
+{% block body %}
+      <div class="content">
+          <center>
+        <form action="{{url_for('ajouter_matière')}}" method="POST">
+          <div class="form-group">
+            <SELECT class="form-control" name="m_module" required>
+            {% for data1 in mod %}
+            <option value="{{data1.titre}}">{{data1.titre}}</option>
+            {% endfor %}
+            </SELECT>
+          </div>
+          <div class="form-group">
+            <SELECT class="form-control" name="nom_m" required>
+            {% for data2 in mat %}
+            <option value="{{data2.titre_mat}}">{{data2.titre_mat}}</option>
+            {% endfor %}
+            </SELECT>
+          </div>
+           <div class="form-group">
+            <input type="text" class="form-control" name="note_EXAM" placeholder="Note Examen" required>
+          </div>
+           <div class="form-group">
+            <input type="text" class="form-control" name="coeff_EXAM" placeholder="Coefficient Examen" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="note_DS" placeholder="Note DS" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="coeff_DS" placeholder="Coefficient DS" required>
+          </div>
+           <div class="form-group">
+            <input type="text" class="form-control" name="note_TP" placeholder="Note TP" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="coeff_TP" placeholder="Coefficient TP" required>
+          </div>
+          <div class="form-group">
+            <input type="number" class="form-control" name="coeff_matière" placeholder="Coefficient Matière" required>
+          </div>
+           <div class="form-group">
+            {% for data in matière1 %}
+            <input type="text" name="cin" value="{{data.cin_etudiant}}" class="form-control">
+            {% endfor %}
+          </div>
+           <button class="btn btn-primary btn-block">
+            Ajouter 
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+{% endblock %}

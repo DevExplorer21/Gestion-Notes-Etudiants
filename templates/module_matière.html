@@ -1,0 +1,71 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+           <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  
+         <link rel="stylesheet" href="{{ url_for('static', filename='table.css') }}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"> 
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />  
+    <title>Page de Matières</title>
+  
+  </head>
+  
+  <body class="loggedin">
+    <nav class="navtop">
+      <div>
+        <h1>La Page des Matières</h1>
+        <a href="{{ url_for('logout') }}" class="fas fa-sign-out-alt">Logout</a>
+      </div>
+    </nav>
+    <div class="content">
+        <h2>Voici la liste des Matières pour ce Module </h2>
+    
+ <div> 
+    <center>
+
+</head>
+<body>
+<div>
+  <center>
+    
+<table>
+  <tr>
+<th>Matière</th>
+  <th>Coefficient Examen</th>
+  <th>Coefficient DS</th>
+  <th>Coefficient TP</th>
+  <th>Module</th>
+  <th>Coefficient</th>
+  <th>Action</th>
+
+  </tr>
+  
+    <tbody>
+
+    {% for data in module_matière %}
+    <tr>
+            <td>{{data.titre_mat}}</td>
+            <td>{{data.coeff_EXAM}}</td>
+            <td>{{data.coeff_DS}}</td>
+            <td>{{data.coeff_TP}}</td>
+            <td>{{data.module}}</td>
+            <td>{{data.coeff_matière}}</td>
+            <td>
+              <a href="/Index6/edit/{{data.id}}" class="btn btn-warning"><i class="fa fa-edit"></i>Modifier</a> </br> 
+              <a href="/Index6/delete/{{data.id}}" class="btn btn-danger"><i class="fa fa-trash"></i>Supprimer</a></br>
+            </td>
+</tr>
+    {% endfor %}
+    </tbody>
+     
+</table>
+
+                          
+          </center>
+        </div>
+</body>
+</html>
+
+
+
+

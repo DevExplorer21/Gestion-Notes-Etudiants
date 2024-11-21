@@ -1,0 +1,83 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+           <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  
+         <link rel="stylesheet" href="{{ url_for('static', filename='table.css') }}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"> 
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />  
+    <title>Gestion des Etudiants</title>
+  
+  </head>
+  
+  <body class="loggedin">
+    <nav class="navtop">
+      <div>
+        <h1>Gestion des Etudiants</h1>
+        <a href="{{ url_for('logout') }}" class="fas fa-sign-out-alt">Logout</a>
+      </div>
+    </nav>
+     {% with messages = get_flashed_messages()  %}
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+    <div class="content">
+        <h2>Ajouter Etudiant</h2>
+
+{% block body %}
+
+      <div class="content">
+          <center>
+        <form action="{{url_for('add_etudiants')}}" method="POST">
+          <div class="form-group">
+            <input type="text" class="form-control" name="firstname" placeholder="Nom" required>
+          </div>
+           <div class="form-group">
+            <input type="text" class="form-control" name="lastname" placeholder="Prénom" required>
+          </div>
+           <div class="form-group">
+            <input type="text" class="form-control" name="cinnumber" placeholder="Numéro CIN" required>
+          </div>
+           <div class="form-group">
+            <input type="text" class="form-control" name="phone" placeholder="Numéro de Téléphone" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="adresse" placeholder="Adresse" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="email" placeholder="E-mail" required>
+          </div>
+          
+          <div class="form-group">
+           <SELECT class="form-control" name="niveau" required>
+            {% for data in classe %}
+            <option value="{{data.niveau}}">{{data.niveau}}</option>
+            {% endfor %}
+            </SELECT>
+          </div>
+          <div class="form-group">
+           <SELECT class="form-control" name="classe"  placeholder="Spécialité et Classe" required/>
+            {% for data2 in classe2 %}
+            <option value="{{data2.spécialité}}">{{data2.spécialité}}</option>
+            {% endfor %}
+           </SELECT>
+          </div>
+           <button class="btn btn-primary btn-block">
+            Ajouter 
+          </button>
+        </form>
+      </div>
+    </center>
+  </div>
+
+{% endblock %}
+</div>
+</body>
+</html>
+ 

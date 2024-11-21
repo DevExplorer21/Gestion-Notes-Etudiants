@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Gestion Utilisateur </title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">              
+    </head>
+    <body></br></br></br></br></br>
+        <div align="center">
+          <div align="center" class="border">
+             
+                <h1>Ajouter Utilisateur</h1>
+             </br></br></br>
+            <h2 class="word">
+                <form action="{{ url_for('register') }}" method="post">
+                  <div class="msg">{{ msg }}</div>
+                    <input id="username" name="username" type="text" placeholder="Entrer le nom utilisateur" class="textbox"/></br></br>
+                    <input id="password" name="password" type="password" placeholder="Entrer le mot de passe" class="textbox"/></br></br>
+                    <input id="email" name="email" type="text" placeholder="Entrer E-mail" class="textbox"/></br></br>
+                    <SELECT id="fonction" name="fonction" class="textbox"/>
+                        
+                     <OPTION>Admin
+                     <OPTION>Etudiant
+                                            
+                    </SELECT></br></br>
+                    <input type="submit" class="button button1" value="Enregistrer"></br>
+                </form>
+            </h2>
+            <p class="bottom">Compte créée ?  <a class="bottom" href="{{url_for('login')}}"> S'identifier ici</a></p>
+          </div>
+        </div>
+    </body>
+</html>
+<style type="text/css">
+  ::placeholder {
+  color: white;
+}
+  .button {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.button1 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid black;
+}
+
+.button1:hover {
+    background-color: black;
+    color: white;
+}
+</style>

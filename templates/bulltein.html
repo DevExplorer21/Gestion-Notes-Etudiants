@@ -1,0 +1,86 @@
+</body>
+</html>
+
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+           <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  
+         <link rel="stylesheet" href="{{ url_for('static', filename='table.css') }}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"> 
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />  
+    <title>Gestion notes</title>
+  
+  </head>
+  
+  <body class="loggedin">
+    <nav class="navtop">
+      <div>
+        <h1>Gestion notes</h1>
+        <a href="{{ url_for('logout') }}" class="fas fa-sign-out-alt">Logout</a>
+      </div>
+    </nav>
+    <div class="content">
+        <h2>Voici la Fiche de Notes de cet Etudiant   </h2>
+    
+ <div> 
+    <center>
+
+</head>
+<body>
+<div>
+  <center>
+    
+<table>
+  <tr>
+<th>Module</th>
+<th>Matière</th>
+  <th>Examen</th>
+  <th>DS</th>
+  <th>TP</th>
+  <th>Coefficient</th>
+  <th>Moyenne</th>
+ 
+  
+
+  </tr>
+  
+    <tbody>
+
+    {% for data in matière %}
+    <tr>    <td>{{data.module}}</td>
+            <td>{{data.nom}}</td>
+            <td>{{data.examen}}</td>
+            <td>{{data.DS}}</td>
+            <td>{{data.TP}}</td>
+            <td>{{data.coeff_matière}}</td>
+            <td>{{data.moyenne}}</td>
+
+                       
+            
+           
+</tr>
+ 
+    {% endfor %}
+
+     <th>Moyenne Générale</th>
+<td>{{moy_général}} </td>
+
+    </tbody>
+
+     
+</table>
+<!--<div>
+  <a href="{{ url_for('Index3') }}" class="button button1">Générer Moyenne</a>
+  </div>
+<div>
+  <a href="{{ url_for('Index3') }}" class="button button1">Ajouter Matière avec TP</a>
+<a href="{{ url_for('Index4') }}" class="button button3">Ajouter Matière sans TP</a>
+</div>-->
+</center>
+</div>
+                          
+          </center>
+        </div>
+</body>
+</html>

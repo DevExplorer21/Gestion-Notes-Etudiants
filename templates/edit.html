@@ -1,0 +1,77 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+           <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  
+         <link rel="stylesheet" href="{{ url_for('static', filename='table.css') }}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"> 
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />  
+    <title>Page de Etudiants</title>
+  
+  </head>
+  
+  <body class="loggedin">
+    <nav class="navtop">
+      <div>
+        <h1>Modification des Etudiants</h1>
+        <a href="{{ url_for('logout') }}" class="fas fa-sign-out-alt">Logout</a>
+      </div>
+    </nav>
+    <div class="content">
+        <h2>Modifier Etudiant</h2>
+
+{% block body %}
+    
+      <div class="content">
+          
+        <form action="/Index2/update/{{etudiants.id}}" method="POST">
+          <div class="form-group">
+            <p>Nom</p>
+            <input type="text" name="firstname" value="{{etudiants.nom}}" class="form-control">
+          </div>
+          <div class="form-group">
+             <p>Prénom</p>
+            <input type="text" name="lastname" value="{{etudiants.prénom}}" class="form-control">
+          </div>
+          <div class="form-group">
+             <p>Numéro de CIN</p>
+            <input type="text" name="cinnumber" value="{{etudiants.cin}}" class="form-control">
+          </div>
+          <div class="form-group">
+             <p>Numéro Téléphone</p>
+            <input type="text" name="phone" value="{{etudiants.num_tlf}}" class="form-control">
+          </div>
+          <div class="form-group">
+             <p>Adresse</p>
+            <input type="text" name="adresse" value="{{etudiants.adresse}}" class="form-control">
+          </div>
+          <div class="form-group">
+             <p>E-Mail</p>
+            <input type="text" name="email" value="{{etudiants.email}}" class="form-control">
+          </div>
+           <div class="form-group">
+             <p>Niveau d'étude</p>
+           <SELECT class="form-control" name="niveau" required>
+            {% for data1 in classe1 %}
+            <option value="{{data1.niveau}}">{{data1.niveau}}</option>
+           {% endfor %}
+          </SELECT>
+        </div>
+        <div class="form-group">
+          <p>Classe </p>
+          <SELECT class="form-control" name="classe" required/>
+            {% for data2 in classe2 %}
+            <option value="{{data2.spécialité}}">{{data2.spécialité}}</option>
+           {% endfor %}
+          </SELECT>
+        </div>
+            <button type="submit" class="btn btn-primary btn-block">
+              Modifier
+            </button>
+          </div>
+        </form>
+      </div>
+
+  </div>
+ 
+{% endblock %}

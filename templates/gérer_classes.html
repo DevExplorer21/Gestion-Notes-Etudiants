@@ -1,0 +1,74 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+           <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  
+         <link rel="stylesheet" href="{{ url_for('static', filename='table.css') }}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"> 
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />  
+    <title>Page des classes</title>
+  
+  </head>
+  
+  <body class="loggedin">
+    <nav class="navtop">
+      <div>
+        <h1>Gestion des classes</h1>
+        <a href="{{ url_for('logout') }}" class="fas fa-sign-out-alt">Logout</a>
+      </div>
+    </nav>
+    <div class="content">
+        <h2>Voici la liste des classes </h2>
+    {% with messages = get_flashed_messages()  %}
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+ <div> 
+    <center>
+
+</head>
+<body>
+<div>
+  <center>
+    
+<table>
+  <tr>
+  <th>Cycle</th>
+  <th>Spécialité et classe</th>
+  <th>Salle</th>
+  <th>Action</th>
+
+  </tr>
+  
+    <tbody>
+
+    {% for data in gérer_classes %}
+    <tr>
+            <td>{{data.niveau}}</td>
+            <td>{{data.spécialité}}</td>
+            <td>{{data.salle}}</td>
+            <td>
+              <a href="/gérer_classes/edit/{{data.id}}" class="btn btn-warning"><i class="fa fa-edit"></i>Modifier</a> </br> 
+              <a href="/gérer_classes/delete/{{data.id}}" class="btn btn-danger"><i class="fa fa-trash"></i>Supprimer</a></br>
+            </td>
+</tr>
+    {% endfor %}
+    </tbody>
+     
+</table>
+
+                          
+          </center>
+        </div>
+</body>
+</html>
+
+
+
+

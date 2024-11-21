@@ -1,0 +1,68 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+           <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  
+         <link rel="stylesheet" href="{{ url_for('static', filename='table.css') }}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"> 
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />  
+    <title>Gestion des Modules</title>
+  
+  </head>
+  
+  <body class="loggedin">
+    <nav class="navtop">
+      <div>
+        <h1>Gestion des Modules</h1>
+        <a href="{{ url_for('logout') }}" class="fas fa-sign-out-alt">Logout</a>
+      </div>
+    </nav>
+     {% with messages = get_flashed_messages()  %}
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+    <div class="content">
+        <h2>Ajouter Mmatière</h2>
+
+{% block body %}
+      <div class="content">
+          <center>
+        <form action="{{url_for('ajouter_matière_module')}}" method="POST">
+          <div class="form-group">
+            <input type="text" class="form-control" name="nom_m" placeholder="Matière" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="coeff_EXAM" placeholder="Coefficient Examen" required>
+          </div>
+         <div class="form-group">
+            <input type="text" class="form-control" name="coeff_DS" placeholder="Coefficient DS" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="coeff_TP" placeholder="Coefficient TP" required>
+          </div>
+          <div class="form-group">
+           <SELECT class="form-control" name="module" required>
+            {% for data1 in module %}
+            <option value="{{data1.titre}}">{{data1.titre}}</option>
+            {% endfor %}
+            </SELECT>
+          </div>
+          <div class="form-group">
+            <input type="number" class="form-control" name="coeff_matière" placeholder="Coefficient Matière" required>
+          </div>
+           <button class="btn btn-primary btn-block">
+            Ajouter 
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+{% endblock %}

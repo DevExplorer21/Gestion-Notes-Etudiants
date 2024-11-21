@@ -1,0 +1,45 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+           <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  
+         <link rel="stylesheet" href="{{ url_for('static', filename='table.css') }}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"> 
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />  
+    <title>Page de matières</title>
+  
+  </head>
+  
+  <body class="loggedin">
+    <nav class="navtop">
+      <div>
+        <h1>Modification des Modules</h1>
+        <a href="{{ url_for('logout') }}" class="fas fa-sign-out-alt">Logout</a>
+      </div>
+    </nav>
+    <div class="content">
+        <h2>Modifier Module</h2>
+
+{% block body %}
+    
+      <div class="content">
+          
+        <form action="/gérer_modules/update/{{module.id}}" method="POST">
+          <div class="form-group">
+            <p>Titre Module</p>
+           <input type="text" name="titre" value="{{module.titre}}" class="form-control">
+          </div>
+          <div class="form-group">
+             <p>Cycle d'étude de Module</p>
+            <input type="text" name="cycle" value="{{module.cycle}}" class="form-control">
+          </div>
+            <button type="submit" class="btn btn-primary btn-block">
+              Modifier
+            </button>
+          </div>
+        </form>
+      </div>
+
+  </div>
+ 
+{% endblock %}
